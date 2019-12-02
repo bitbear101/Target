@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/BodyLayout.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/BodyLayout.png" type="Texture" id=2]
+
+[node name="BodyLayout" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="RightArm" type="Sprite" parent="."]
+position = Vector2( 36, 92 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 32, 64 )
+
+[node name="LeftArm" type="Sprite" parent="."]
+position = Vector2( 76, 92 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 32, 64 )
+
+[node name="Torso" type="Sprite" parent="."]
+position = Vector2( 48.0344, 107.188 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 32, 32 )
+
+[node name="Chest" type="Sprite" parent="."]
+position = Vector2( 50, 92 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 32, 64 )
+
+[node name="RightLeg" type="Sprite" parent="."]
+position = Vector2( 42, 141 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 64 )
+
+[node name="LeftLeg" type="Sprite" parent="."]
+position = Vector2( 66, 141 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 32, 64 )

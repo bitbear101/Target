@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Target"
+boot_splash/fullsize=false
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+
+[locale]
+
+locale_filter=[ 0, [ "af_ZA" ] ]
+
+[rendering]
+
+quality/filters/anisotropic_filter_level=3
+environment/default_environment="res://default_env.tres"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/Target.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/TargetMovement.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/Target.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -21,16 +22,21 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=2]
 
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 91.434, 74.63, 0, 0, 0, 0, 481.434, 34.63, 0, 0, 0, 0, 841.434, 504.63, 0, 0, 0, 0, -58.566, 584.63, 0, 0, 0, 0, 91.434, 74.63 )
+}
+
 [node name="Target" type="Area2D"]
-position = Vector2( 248.566, 105.37 )
+position = Vector2( 270, 110 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 hframes = 2
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 1 )
@@ -38,3 +44,10 @@ anims/idle = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 1.35, 1.31 )
 shape = SubResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 91.434, 74.63 )
+rotation = -0.102205

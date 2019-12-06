@@ -15,7 +15,7 @@ public class BodyLayout : Node2D
         RightLeg
     };
 
-    void _ready()
+    public override void _Ready()
     {
         Timer timer = new Timer();
         timer.Connect("timeout", this, "testDamage");

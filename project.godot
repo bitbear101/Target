@@ -27,7 +27,7 @@ window/size/resizable=false
 
 [locale]
 
-locale_filter=[ 0, [ "af_ZA" ] ]
+locale_filter=[ 0, [ "en" ] ]
 
 [rendering]
 

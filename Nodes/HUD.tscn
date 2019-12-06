@@ -1,3 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Nodes/HUD.cs" type="Script" id=1]
+[ext_resource path="res://Nodes/Systems/Health.tscn" type="PackedScene" id=2]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Health" parent="." instance=ExtResource( 2 )]
+
+[node name="HealthLabel" type="Label" parent="."]
+margin_left = 128.25
+margin_top = 145.35
+margin_right = 344.25
+margin_bottom = 189.35
+text = "Health"

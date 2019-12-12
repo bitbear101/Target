@@ -4,7 +4,6 @@ using System;
 public class HUD : CanvasLayer
 {
     Label healthLabel;
-    int health;
 
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -14,10 +13,10 @@ public class HUD : CanvasLayer
     public override void _Ready()
     {
         healthLabel = GetNode<Label>("HealthLabel");
-        GetNode<Node2D>("Health").Connect("HealtChanged", this, nameof(UpdateHealthChanged), health);
+        GetNode<Node2D>("Health").Connect("HealthChanged", this, nameof(UpdateHealthChanged));
     }
 
-    public void UpdateHealthChanged(int _health)
+    public void UpdateHealthChanged(int health)
     {
         healthLabel.Text = health.ToString();
     }

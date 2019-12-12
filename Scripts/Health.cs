@@ -4,15 +4,16 @@ using System;
 public class Health : Node2D
 {
     [Signal] 
-    public delegate void HealthChanged();
+    public delegate void HealthChanged(int health);
     [Export]
-    int myHealth;
+    int myHealth = 100;
 
     
 
     public void TakeDamage(int damage)
     {
         myHealth -= damage;
+        GD.Print(myHealth);
         EmitSignal(nameof(HealthChanged), myHealth);
     }
 
@@ -30,7 +31,6 @@ public class Health : Node2D
 // Called every frame. 'delta' is the elapsed time since the previous frame.
 public override void _Process(float delta)
   {
-      TakeDamage(1);
-      GD.Print(myHealth);
+      
   }
 }

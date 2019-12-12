@@ -1,3 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
 
-[node name="Main" type="Node"]
+[ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Target.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/BodyLayout.tscn" type="PackedScene" id=4]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 256 )
+z_index = 1
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+
+[node name="Target" parent="." instance=ExtResource( 3 )]
+
+[node name="BodyLayout" parent="." instance=ExtResource( 4 )]

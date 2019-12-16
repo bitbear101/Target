@@ -4,7 +4,7 @@ using System;
 public class Movement : KinematicBody2D
 {
     [Export]
-    int maxSpeed = 400;
+    int maxSpeed = 200;
     int acceleration = 2000;
 
     Vector2 motion = Vector2.Zero;

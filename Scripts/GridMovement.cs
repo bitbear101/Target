@@ -4,7 +4,7 @@ using System;
 public class GridMovement : KinematicBody2D
 {
     [Export]
-    int speed = 250;
+    int speed = 150;
     int tileSize = 32;
     RayCast2D ray;
     Vector2 lastPosition = new Vector2();
@@ -15,7 +15,7 @@ public class GridMovement : KinematicBody2D
     public override void _Ready()
     {
         //Get the raycast2d node from the main node
-        ray = GetNode<RayCast2D>("RayCast2D");
+        ray = GetNode<RayCast2D>("../RayCast2D");
         //Set the current position to snap to a multiple of the tile size
         Position = Position.Snapped(new Vector2(tileSize, tileSize));
         //Set the initial value of the lastPosition to the current position
@@ -34,30 +34,37 @@ public class GridMovement : KinematicBody2D
         }
         else
         {
+            GD.Print("Before Position = " + Position);
             //Move the position towards the move drection
             Position += moveDir * speed * delta;
+GD.Print("After Position = " + Position);
 
             if (Position.DistanceTo(lastPosition) >= tileSize - speed * delta)
+            {
                 Position = targetPosition;
-
+            }
         }
         //If we are not in position
         if (Position == targetPosition)
         {
-            Get_MoveDir();
+            Move();
             lastPosition = Position;
             targetPosition += moveDir * tileSize;
         }
     }
-    public void Get_MoveDir()
+    public void GetMoveDir(int xMove, int yMove)
     {
-        //Convert the bool returns to ints and use them for movement;
-        moveDir.x = Convert.ToInt16(Input.IsActionPressed("right")) - Convert.ToInt16(Input.IsActionPressed("left"));
-        moveDir.y = Convert.ToInt16(Input.IsActionPressed("down")) - Convert.ToInt16(Input.IsActionPressed("up"));
-
+        moveDir.x = xMove;
+        moveDir.y = yMove;
+        //moveDir.x = Convert.ToInt16(Input.IsActionPressed("right")) - Convert.ToInt16(Input.IsActionPressed("left"));
+        //moveDir.y = Convert.ToInt16(Input.IsActionPressed("down")) - Convert.ToInt16(Input.IsActionPressed("up"));
+    }
+    private void Move()
+    {
         //Check if the player is trying to move diagonaly then we set the movement to zero as it is not allowed
         if (moveDir.x != 0 && moveDir.y != 0) moveDir = Vector2.Zero;
         //If the player is moving cast the ray towards the move direction but only as far as half the tile size
         if (moveDir != Vector2.Zero) ray.CastTo = moveDir * tileSize / 2;
     }
+
 }

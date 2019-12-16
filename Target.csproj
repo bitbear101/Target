@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Nodes\HUD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Actor.cs" />
     <Compile Include="Scripts\BodyLayout.cs" />
     <Compile Include="Scripts\GridMovement.cs" />
     <Compile Include="Scripts\Health.cs" />
